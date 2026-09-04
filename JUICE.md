@@ -36,16 +36,16 @@ Because the target Wi-Fi network (`multi_juicer_5G`) provides no outbound intern
 > **Correction (verified):** this applies to *our* `wlan0` client only — the **Juice Shop pod itself has full outbound internet egress**. Proven with the profile-image fetch primitive, which stores an uploads path on success and the raw URL on failure: a `raw.githubusercontent.com` URL came back as `/assets/public/images/uploads/2.jpg` (fetched), versus a LAN control that behaved identically. Earlier notes implying the target had no egress were wrong, and that assumption is what made the Web3 challenges look untestable.
 
 ### 1. Primary Interface (Internet Gateway)
-* **Interface:** `usb0` (Smartphone USB Tethering), IP `10.157.169.132/24`, gateway `10.157.169.61`
+* **Interface:** `usb0` (Smartphone USB Tethering), DHCP, gateway on phone tether
 * **Purpose:** external internet/DNS/tool traffic (GitHub source cross-referencing, reverse geocoding).
 
 ### 2. Secondary Interface (Juice Shop Target Network)
-* **Interface:** `wlan0` (Intel Wi-Fi 6E AX211), SSID `multi_juicer_5G`, passphrase `multiJuicer`, channel 40 (5 GHz)
+* **Interface:** `wlan0` (Intel Wi-Fi 6E AX211), SSID `multi_juicer_5G`, passphrase `<wifi-passphrase>`, channel 40 (5 GHz)
 * **Assigned IP:** `<client-ip>/24` with `ipv4.never-default yes` / `ipv6.never-default yes`
 * **Commands:**
   ```bash
   nmcli connection add type wifi ifname wlan0 con-name "multi_juicer_5G" ssid "multi_juicer_5G"
-  nmcli connection modify "multi_juicer_5G" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "multiJuicer"
+  nmcli connection modify "multi_juicer_5G" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "<wifi-passphrase>"
   nmcli connection modify "multi_juicer_5G" ipv4.never-default yes ipv6.never-default yes
   nmcli connection up "multi_juicer_5G"
   ```

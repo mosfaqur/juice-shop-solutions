@@ -1530,7 +1530,7 @@ Difficulty: ★★★★ | Vulnerability class: CWE-79 (XSS) + CWE-693 (CSP inje
 
 # 5-Star Challenges (★★★★★)
 
-Writeups for the nineteen five-star challenges documented in [`../../JUICE.md`](../../JUICE.md) under "5-Star Findings" (#79–#97). **Register cross-check:** the register line `★★★★★ (19):` enumerates exactly these nineteen challenges (Change Bender's Password, Leaked Access Logs, Email Leak, Extra Language, Unsigned JWT, Leaked API Key, Local File Read, NoSQL Exfiltration, Blocked RCE DoS, Reset Bjoern's Password, Reset Morty's Password, Retrieve Blueprint, Supply Chain Attack, Cross-Site Imaging, Blockchain Hype, Two Factor Authentication, Frontend Typosquatting, XXE DoS, Memory Bomb) — no omissions, no extras. Entries marked *(team activity)* were solved on the shared team instance and are written at register level.
+Writeups for the nineteen five-star challenges documented in [`./JUICE.md`](./JUICE.md) under "5-Star Findings" (#79–#97). **Register cross-check:** the register line `★★★★★ (19):` enumerates exactly these nineteen challenges (Change Bender's Password, Leaked Access Logs, Email Leak, Extra Language, Unsigned JWT, Leaked API Key, Local File Read, NoSQL Exfiltration, Blocked RCE DoS, Reset Bjoern's Password, Reset Morty's Password, Retrieve Blueprint, Supply Chain Attack, Cross-Site Imaging, Blockchain Hype, Two Factor Authentication, Frontend Typosquatting, XXE DoS, Memory Bomb) — no omissions, no extras. Entries marked *(team activity)* were solved on the shared team instance and are written at register level.
 
 ## Summary
 
@@ -2062,7 +2062,7 @@ success and the raw URL on failure: a `raw.githubusercontent.com` URL came
 back as `/assets/public/images/uploads/2.jpg` (fetched), while a LAN control
 behaved identically. Earlier assumptions that the target had no egress were
 wrong, and that assumption made the Web3 challenges look untestable — see
-[`blocked-challenges.md`](./blocked-challenges.md) for the *actual* (server
+[`docs/blocked-challenges.md`](./docs/blocked-challenges.md) for the *actual* (server
 configuration) blocker.
 
 ## Application stack fingerprint
@@ -2091,7 +2091,7 @@ blockers confirmed from the verifier code.
 `curl`, `jq`, Python 3 (`urllib`/`requests`), `playwright-core` + system
 Chromium headless (SPA routes / localStorage token injection), raw
 Socket.IO polling, `exiftool`, `zipfile`/`pyyaml` for file-upload payloads.
-See [`../tools/README.md`](../tools/README.md).
+See [`tools/README.md`](./tools/README.md).
 
 ---
 
@@ -2147,7 +2147,7 @@ SELECT * FROM Users WHERE email='..' AND password='..' AND deletedAt IS NULL
 - The RSA public key lives at `/encryptionkeys/jwt.pub` (world readable) —
   enables algorithm-confusion (HS256 signed with the public-key bytes).
 - `alg:none` unsigned tokens are accepted for some routes (Unsigned JWT
-  challenge). See [`exploit-primitives.md`](./exploit-primitives.md).
+  challenge). See [`docs/exploit-primitives.md`](./docs/exploit-primitives.md).
 
 ---
 
@@ -2269,7 +2269,7 @@ offline / in bulk.
 1. Compute `vulnLines` per key by replaying `getCodingChallengeFromFileContent()`
    over the v20.2.0 tree (a small Node script walking `SNIPPET_PATHS`; note
    `server.ts` is a *file* and must be scanned directly, not skipped by the
-   directory walk). See [`../tools/coding_challenge_solver.py`](../tools/coding_challenge_solver.py).
+   directory walk). See [`./tools/coding_challenge_solver.mjs`](./tools/coding_challenge_solver.mjs).
 2. `POST /snippets/verdict {key, selectedLines: vulnLines}` → find-it solved.
 3. `GET /snippets/fixes/:key`, then try `selectedFix = 0..N-1` until
    `verdict:true` → fix-it solved (robust against `readdirSync` ordering).
@@ -2488,7 +2488,7 @@ POST /socket.io/?EIO=4&transport=polling&sid=<sid>  body: 40
 POST /socket.io/?EIO=4&transport=polling&sid=<sid>  body: 42["<event>","<data>"]
 ```
 
-See [`../tools/socketio_client.py`](../tools/socketio_client.py).
+See [`./tools/socketio_client.py`](./tools/socketio_client.py).
 
 ## 7. SSTi as a host-introspection oracle
 
@@ -2522,8 +2522,8 @@ The `/snippets` endpoints are unauthenticated and entirely deterministic.
 pinned source (replay `lib/codingChallenges.ts`), and the correct fix index is
 the `_correct`-suffixed file in `data/static/codefixes/` (or just brute-force
 `selectedFix`). This clears all 70 coding challenges without touching the LLM
-or blockchain. See [`../tools/coding_challenge_solver.py`](../tools/coding_challenge_solver.py)
-and the [coding-challenges doc](./coding-challenges.md).
+or blockchain. See [`./tools/coding_challenge_solver.mjs`](./tools/coding_challenge_solver.mjs)
+and the [coding-challenges doc](./docs/coding-challenges.md).
 
 ---
 
@@ -2572,13 +2572,13 @@ repo.
 
 | Tool | Purpose |
 | :--- | :--- |
-| [`union_sqli.py`](./union_sqli.py) | Arbitrary UNION SQL execution against the product-search injection |
-| [`jwt_forge.py`](./jwt_forge.py) | Forge JWTs: algorithm confusion, `alg:none`, plain HS256 |
-| [`socketio_client.py`](./socketio_client.py) | Raw Socket.IO polling client (no library) for verifier events |
-| [`coding_challenge_solver.mjs`](./coding_challenge_solver.mjs) | Solve all find-it/fix-it coding challenges from a pinned source tree |
-| [`security_answer_hmac.py`](./security_answer_hmac.py) | Verify/reset security-answer HMACs |
-| [`make_zip_slip.py`](./make_zip_slip.py) | Build a zip-slip archive |
-| [`payloads/`](./payloads) | XXE, XXE-DoS, YAML alias-bomb, B2B RCE-DoS payload files |
+| [`union_sqli.py`](./tools/union_sqli.py) | Arbitrary UNION SQL execution against the product-search injection |
+| [`jwt_forge.py`](./tools/jwt_forge.py) | Forge JWTs: algorithm confusion, `alg:none`, plain HS256 |
+| [`socketio_client.py`](./tools/socketio_client.py) | Raw Socket.IO polling client (no library) for verifier events |
+| [`coding_challenge_solver.mjs`](./tools/coding_challenge_solver.mjs) | Solve all find-it/fix-it coding challenges from a pinned source tree |
+| [`security_answer_hmac.py`](./tools/security_answer_hmac.py) | Verify/reset security-answer HMACs |
+| [`make_zip_slip.py`](./tools/make_zip_slip.py) | Build a zip-slip archive |
+| [`payloads/`](./tools/payloads) | XXE, XXE-DoS, YAML alias-bomb, B2B RCE-DoS payload files |
 
 ---
 

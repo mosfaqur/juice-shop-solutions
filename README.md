@@ -32,6 +32,8 @@ challenges** solved, plus **70 of 70 coding challenges**).
 ├── JUICE.md                         # Full engagement report (source of truth)
 ├── Juice-Shop-Solutions.md          # Single-document markdown (all 181 solutions)
 ├── Juice-Shop-Solutions.pdf         # Single-document PDF (A4, 76 pages)
+├── requirements.txt                 # Python dependencies (requests, hashids)
+├── package.json                     # Node environment specification & scripts
 ├── docs/
 │   ├── environment-setup.md        # Target network, routing, tooling setup
 │   ├── authentication-model.md     # JWT / cookie / localStorage auth split
@@ -47,8 +49,13 @@ challenges** solved, plus **70 of 70 coding challenges**).
 │   ├── blocked-challenges.md       # The 5 remaining, with proof they are env-blocked
 │   ├── exploit-primitives.md       # 9 reusable, verified exploit techniques
 │   └── credentials-data.md         # Seed creds, hashes, reset answers
-└── tools/                          # Reusable exploit scripts & payloads
-    └── README.md                   # Usage for every tool
+├── tools/                          # Reusable exploit scripts & payloads
+│   └── README.md                   # Usage for every tool
+├── tests/                          # Automated unit test suite
+│   └── test_tools.py               # Tool tests (HMAC, JWT, ZipSlip, SQLi)
+└── scripts/
+    ├── verify_repo.py              # Automated link & challenge count validator
+    └── generate_pdf.sh             # PDF build script (Pandoc + Weasyprint)
 ```
 
 ## Writeup format
@@ -76,6 +83,34 @@ business-logic abuse · CSRF · SSTi → `eval` · SSRF · sandboxed RCE
 XSS · CSP injection · client-side secret disclosure · OSINT via EXIF · weak &
 reused credentials · crypto weaknesses (hardcoded HMAC key, weak/unsigned &
 algorithm-confused JWTs) · NoSQL injection · many security misconfigurations.
+
+## Quick Start & Verification
+
+### Dependencies
+
+```bash
+# Python dependencies
+pip install -r requirements.txt
+
+# Development & testing dependencies
+pip install -r requirements-dev.txt
+```
+
+### Verification & Testing
+
+```bash
+# Run repository health verification (validates links, syntax, and challenge counts)
+python3 scripts/verify_repo.py
+
+# Run automated unit test suite
+python3 -m unittest discover tests
+
+# Linting
+ruff check tools/ tests/ scripts/
+
+# Build PDF from markdown
+./scripts/generate_pdf.sh
+```
 
 ## Tools
 

@@ -42,7 +42,7 @@ offline / in bulk.
 1. Compute `vulnLines` per key by replaying `getCodingChallengeFromFileContent()`
    over the v20.2.0 tree (a small Node script walking `SNIPPET_PATHS`; note
    `server.ts` is a *file* and must be scanned directly, not skipped by the
-   directory walk). See [`../tools/coding_challenge_solver.py`](../tools/coding_challenge_solver.py).
+   directory walk). See [`../tools/coding_challenge_solver.mjs`](../tools/coding_challenge_solver.mjs).
 2. `POST /snippets/verdict {key, selectedLines: vulnLines}` → find-it solved.
 3. `GET /snippets/fixes/:key`, then try `selectedFix = 0..N-1` until
    `verdict:true` → fix-it solved (robust against `readdirSync` ordering).

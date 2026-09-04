@@ -1,0 +1,15 @@
+{
+  "name": "juice-shop-solutions",
+  "version": "1.0.0",
+  "description": "OWASP Juice Shop solution writeups and exploit tooling",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --check tools/coding_challenge_solver.mjs",
+    "solve:dry-run": "node tools/coding_challenge_solver.mjs --dry-run"
+  },
+  "license": "MIT"
+}
