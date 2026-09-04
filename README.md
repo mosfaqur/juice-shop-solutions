@@ -16,6 +16,11 @@ challenges** solved, plus **70 of 70 coding challenges**).
 > of the Juice Shop seed data or the public source tree is kept — those are
 > static application data, not live secrets.
 
+**Single-document PDF:** [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) —
+a 76-page A4 document covering all 181 solved challenges (111 detailed hacking
+writeups + the 70 coding-challenge solution method), with cover summary,
+solved-challenge register and section links.
+
 ---
 
 ## What is in this repository
