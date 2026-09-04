@@ -16,10 +16,11 @@ challenges** solved, plus **70 of 70 coding challenges**).
 > of the Juice Shop seed data or the public source tree is kept — those are
 > static application data, not live secrets.
 
-**Single-document PDF:** [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) —
-a 76-page A4 document covering all 181 solved challenges (111 detailed hacking
-writeups + the 70 coding-challenge solution method), with cover summary,
-solved-challenge register and section links.
+**Single-document versions:**
+- [`Juice-Shop-Solutions.md`](./Juice-Shop-Solutions.md) — the whole guide as one
+  markdown file (cover + contents, solved-challenge register, all writeups).
+- [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) — the same content as a
+  76-page A4 PDF (generated from the markdown).
 
 ---
 
@@ -27,7 +28,10 @@ solved-challenge register and section links.
 
 ```
 .
-├── JUICE.md                        # Full engagement report (source of truth)
+├── README.md                        # Overview + links
+├── JUICE.md                         # Full engagement report (source of truth)
+├── Juice-Shop-Solutions.md          # Single-document markdown (all 181 solutions)
+├── Juice-Shop-Solutions.pdf         # Single-document PDF (A4, 76 pages)
 ├── docs/
 │   ├── environment-setup.md        # Target network, routing, tooling setup
 │   ├── authentication-model.md     # JWT / cookie / localStorage auth split
