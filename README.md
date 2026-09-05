@@ -20,7 +20,7 @@ challenges** solved, plus **70 of 70 coding challenges**).
 - [`Juice-Shop-Solutions.md`](./Juice-Shop-Solutions.md) — the whole guide as one
   markdown file (cover + contents, solved-challenge register, all writeups).
 - [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) — the same content as a
-  76-page A4 PDF (generated from the markdown).
+  formatted A4 PDF (generated from markdown via Pandoc + Weasyprint).
 
 ---
 
@@ -31,7 +31,7 @@ challenges** solved, plus **70 of 70 coding challenges**).
 ├── README.md                        # Overview + links
 ├── JUICE.md                         # Full engagement report (source of truth)
 ├── Juice-Shop-Solutions.md          # Single-document markdown (all 181 solutions)
-├── Juice-Shop-Solutions.pdf         # Single-document PDF (A4, 76 pages)
+├── Juice-Shop-Solutions.pdf         # Single-document PDF (A4 publication format)
 ├── requirements.txt                 # Python dependencies (requests, hashids)
 ├── package.json                     # Node environment specification & scripts
 ├── docs/

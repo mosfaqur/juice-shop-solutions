@@ -10,7 +10,7 @@ SOURCE="$REPO_ROOT/Juice-Shop-Solutions.md"
 TARGET="$REPO_ROOT/Juice-Shop-Solutions.pdf"
 
 echo "[*] Compiling PDF from $SOURCE..."
-pandoc "$SOURCE" \
+pandoc -f gfm "$SOURCE" \
   -o "$TARGET" \
   --pdf-engine=weasyprint \
   -V geometry:margin=2cm \
