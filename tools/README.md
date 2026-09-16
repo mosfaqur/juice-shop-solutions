@@ -1,4 +1,8 @@
 # Tools
+ 
+[![Python 3](https://img.shields.io/badge/Python-3-blue.svg)](#)
+[![Node >= 18](https://img.shields.io/badge/Node-%3E%3D18-green.svg)](#)
+[![Payloads Included](https://img.shields.io/badge/Payloads-5%20files-yellow.svg)](#payload-files-payloads)
 
 Reusable exploit scripts & payloads derived from the engagement. Dependency
 policy: Python 3 stdlib + `requests`; Node ≥ 18 (global `fetch`) for the coding

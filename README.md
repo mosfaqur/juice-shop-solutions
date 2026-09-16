@@ -1,5 +1,12 @@
 # OWASP Juice Shop — Full Solution Writeups
 
+[![OWASP Juice Shop](https://img.shields.io/badge/OWASP-Juice%20Shop%20v20.2.0-orange.svg)](https://owasp.org/www-project-juice-shop/)
+[![Challenges Solved](https://img.shields.io/badge/Challenges-181%2F186%20Solved-brightgreen.svg)](#what-is-in-this-repository)
+[![Tests](https://img.shields.io/badge/Tests-6%20Passing-success.svg)](#verification--testing)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](#dependencies)
+[![Node](https://img.shields.io/badge/Node-%3E%3D18-green.svg)](#dependencies)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+
 Detailed, step-by-step exploitation walkthroughs for the OWASP Juice Shop
 application, produced during a team CTF engagement (**111 of 116 hacking
 challenges** solved, plus **70 of 70 coding challenges**).
@@ -21,6 +28,19 @@ challenges** solved, plus **70 of 70 coding challenges**).
   markdown file (cover + contents, solved-challenge register, all writeups).
 - [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) — the same content as a
   formatted A4 PDF (generated from markdown via Pandoc + Weasyprint).
+
+---
+
+## Table of Contents
+
+- [What is in this repository](#what-is-in-this-repository)
+- [Writeup format](#writeup-format)
+- [Categories exercised](#categories-exercised)
+- [Quick Start & Verification](#quick-start--verification)
+  - [Dependencies](#dependencies)
+  - [Verification & Testing](#verification--testing)
+- [Tools](#tools)
+- [Reading order](#reading-order)
 
 ---
 
