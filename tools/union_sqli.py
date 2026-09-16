@@ -36,7 +36,7 @@ def run(base, cookie, q, out=None):
     print(f"[*] HTTP {r.status_code}")
     try:
         data = r.json()
-    except Exception:
+    except ValueError:
         print(r.text[:2000])
         return
     rows = data.get("data", data)

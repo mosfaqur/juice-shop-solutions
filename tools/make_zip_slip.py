@@ -10,7 +10,7 @@ and confirm the target file was overwritten.
 """
 
 import argparse
-from zipfile import ZipFile, ZIP_DEFLATED
+from zipfile import ZIP_DEFLATED, ZipFile
 
 
 def main():

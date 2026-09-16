@@ -10,8 +10,8 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TOOLS_DIR = os.path.join(REPO_ROOT, "tools")
 sys.path.insert(0, TOOLS_DIR)
 
-from union_sqli import build_payload  # noqa: E402
-import jwt_forge  # noqa: E402
+import jwt_forge
+from union_sqli import build_payload
 
 
 class TestJuiceShopTools(unittest.TestCase):

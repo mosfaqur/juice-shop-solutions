@@ -1,0 +1,20 @@
+# Ruff configuration for juice-shop-solutions
+target-version = "py310"
+line-length = 120
+
+[lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # Pyflakes
+    "W",    # pycodestyle warnings
+    "I",    # isort
+    "BLE",  # flake8-blind-except
+    "PLW",  # Pylint warnings
+    "RUF",  # Ruff-specific rules
+]
+ignore = [
+    "E501",  # Line too long (payloads/test fixtures have long strings)
+]
+
+[lint.per-file-ignores]
+"tests/*" = ["E402"]  # Tests modify sys.path before importing local tools

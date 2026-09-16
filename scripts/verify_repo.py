@@ -60,7 +60,7 @@ def check_tool_syntax_and_perms():
     for pf in py_files:
         try:
             py_compile.compile(pf, doraise=True)
-        except Exception as e:
+        except py_compile.PyCompileError as e:
             print(f"[!] Syntax error in {pf}: {e}")
             success = False
         if not os.access(pf, os.X_OK):
@@ -68,7 +68,7 @@ def check_tool_syntax_and_perms():
             success = False
 
     for mf in mjs_files:
-        res = subprocess.run(["node", "--check", mf], capture_output=True, text=True)
+        res = subprocess.run(["node", "--check", mf], capture_output=True, text=True, check=False)
         if res.returncode != 0:
             print(f"[!] Syntax error in {mf}: {res.stderr}")
             success = False
