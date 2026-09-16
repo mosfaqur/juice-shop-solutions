@@ -1,4 +1,4 @@
-# OWASP Juice Shop — Full Solution Writeups
+# OWASP Juice Shop - Full Solution Writeups
 
 [![OWASP Juice Shop](https://img.shields.io/badge/OWASP-Juice%20Shop%20v20.2.0-orange.svg)](https://owasp.org/www-project-juice-shop/)
 [![Challenges Solved](https://img.shields.io/badge/Challenges-181%2F186%20Solved-brightgreen.svg)](#what-is-in-this-repository)
@@ -14,19 +14,19 @@ challenges** solved, plus **70 of 70 coding challenges**).
 - **Platform:** OWASP Juice Shop `v20.2.0` served through a MultiJuicer CTF
   reverse proxy
 - **Result:** 3870 CTF points, rank 1 of 8 teams
-- **Report basis:** [`JUICE.md`](./JUICE.md) — the full engagement report
+- **Report basis:** [`JUICE.md`](./JUICE.md), the full engagement report
   (source of truth for every finding below)
 
 > **Redactions.** Anything needed to reach the *live* competition instance
 > (team session cookie, join passcode, proxy hostname) has been removed from
 > this public repository. Every credential, hash, key and answer that is part
-> of the Juice Shop seed data or the public source tree is kept — those are
+> of the Juice Shop seed data or the public source tree is kept; those are
 > static application data, not live secrets.
 
 **Single-document versions:**
-- [`Juice-Shop-Solutions.md`](./Juice-Shop-Solutions.md) — the whole guide as one
+- [`Juice-Shop-Solutions.md`](./Juice-Shop-Solutions.md): the whole guide as one
   markdown file (cover + contents, solved-challenge register, all writeups).
-- [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf) — the same content as a
+- [`Juice-Shop-Solutions.pdf`](./Juice-Shop-Solutions.pdf): the same content as a
   formatted A4 PDF (generated from markdown via Pandoc + Weasyprint).
 
 ---
@@ -84,10 +84,10 @@ Every challenge entry follows the same template so writeups can be skimmed or
 replayed:
 
 1. **Difficulty / tier** and **vulnerability class** (CWE-style)
-2. **Attack surface** — the exact endpoint(s), route(s) or socket involved
-3. **Root cause** — the underlying flaw, with file references where known
-4. **Step-by-step exploit** — copy-pasteable commands / payloads
-5. **Verification** — how the challenge was confirmed solved
+2. **Attack surface:** the exact endpoint(s), route(s) or socket involved
+3. **Root cause:** the underlying flaw, with file references where known
+4. **Step-by-step exploit:** copy-pasteable commands / payloads
+5. **Verification:** how the challenge was confirmed solved
 
 Entries solved collaboratively on the shared team instance are tagged
 `(team activity)` and are described at a slightly higher level; entries
